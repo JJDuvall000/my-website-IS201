@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI App Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #2b4a6f;
+        }
+
+        button {
+            background: #2b4a6f;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #1f3550;
+        }
+
+        .idea-box {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #eef4ff;
+            display: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #2b4a6f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ETA Idea Generator</h1>
+    <p>Click below to reveal a business idea!</p>
+
+    <button onclick="generateIdea()">Generate Idea</button>
+
+    <div class="idea-box" id="ideaBox">
+        <p><span class="label">Idea:</span> <span id="ideaText"></span></p>
+        <p><span class="label">Startup Cost:</span> <span id="costText"></span></p>
+        <p><span class="label">Difficulty:</span> <span id="difficultyText"></span></p>
+        <p><span class="label">Chance of Success:</span> <span id="successText"></span></p>
+    </div>
+    <p style="margin-top: 20px; text-align:center;">
+    <a href="Resume.html" style="color:#2b4a6f; text-decoration:none;">
+        ← Back to ETA Page
+    </a>
+</p>
+
+</div>
+
+<script>
+    const ideas = [
+        {
+            idea: "Local Window Cleaning Route Acquisition",
+            cost: "$5,000 – $20,000",
+            difficulty: "Medium",
+            success: "High (76%)"
+        },
+        {
+            idea: "Buy a Small Lawn Care Company",
+            cost: "$8,000 – $25,000",
+            difficulty: "Medium",
+            success: "Moderate (64%)"
+        },
+        {
+            idea: "Acquire a Pressure Washing Business",
+            cost: "$2,000 – $10,000",
+            difficulty: "Easy",
+            success: "High (81%)"
+        },
+        {
+            idea: "Buy a Content Website and Scale It",
+            cost: "$3,000 – $12,000",
+            difficulty: "Hard",
+            success: "Moderate (58%)"
+        },
+        {
+            idea: "Acquire a Vending Machine Route",
+            cost: "$1,500 – $7,000",
+            difficulty: "Easy",
+            success: "High (84%)"
+        },
+        {
+            idea: "Purchase a Car Detailing Operation",
+            cost: "$500 – $4,000",
+            difficulty: "Easy",
+            success: "High (79%)"
+        }
+    ];
+
+    function generateIdea() {
+        const random = ideas[Math.floor(Math.random() * ideas.length)];
+
+        document.getElementById("ideaText").innerText = random.idea;
+        document.getElementById("costText").innerText = random.cost;
+        document.getElementById("difficultyText").innerText = random.difficulty;
+        document.getElementById("successText").innerText = random.success;
+
+        document.getElementById("ideaBox").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
